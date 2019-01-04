@@ -65,7 +65,7 @@ namespace WebApiTest.Data
             return true;
         }
 
-        public async Task<bool> UserExistsAsync(string username)
+        public async Task<bool> UserExists(string username)
         {
             return await _context.Users.AnyAsync(x => x.UserName.Equals(username));
         }
