@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,11 +11,27 @@ export class NavComponent {
   model: any = {};
 
   /** nav ctor */
-  constructor() {
+  constructor(private authService: AuthService) {
 
   }
 
   login() {
-    console.log(this.model);
+    this.authService.login(this.model).subscribe(next => {
+        console.log("Logged in succesfully");
+      },
+      error => {
+        console.log("Login failed");
+      }
+    );
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log("Logged out");
   }
 }

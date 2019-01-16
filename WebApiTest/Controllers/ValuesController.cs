@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiTest.Data;
 
-namespace WebApiTest.Controllers
+namespace DatingApp.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
