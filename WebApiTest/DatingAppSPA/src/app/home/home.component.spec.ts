@@ -1,20 +1,20 @@
 import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { BrowserModule, By } from "@angular/platform-browser";
-import { ValueComponent } from './value.component';
+import { HomeComponent } from './home.component';
 
-let component: ValueComponent;
-let fixture: ComponentFixture<ValueComponent>;
+let component: HomeComponent;
+let fixture: ComponentFixture<HomeComponent>;
 
-describe('value component', () => {
+describe('home component', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ ValueComponent ],
+            declarations: [ HomeComponent ],
             imports: [ BrowserModule ],
             providers: [
                 { provide: ComponentFixtureAutoDetect, useValue: true }
             ]
         });
-        fixture = TestBed.createComponent(ValueComponent);
+        fixture = TestBed.createComponent(HomeComponent);
         component = fixture.componentInstance;
     }));
 
