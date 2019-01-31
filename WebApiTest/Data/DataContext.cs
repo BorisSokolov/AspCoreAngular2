@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DatingApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApiTest.Data
 {
@@ -8,7 +9,7 @@ namespace WebApiTest.Data
         {
         }
 
-        public DbSet<Models.Value> Values { get; set; }
+        public DbSet<Value> Values { get; set; }
         public DbSet<Models.User> Users { get; set; }
     }
 }
