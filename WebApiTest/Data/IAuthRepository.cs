@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using WebApiTest.Models;
+using DatingApp.Models;
 
 namespace WebApiTest.Data
 {

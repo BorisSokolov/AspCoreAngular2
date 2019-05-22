@@ -2,8 +2,8 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DatingApp.Models;
 using Microsoft.EntityFrameworkCore;
-using WebApiTest.Models;
 
 namespace WebApiTest.Data
 {
