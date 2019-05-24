@@ -3,12 +3,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using DatingApp.Dtos;
 using DatingApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using WebApiTest.Data;
-using WebApiTest.Dtos;
 
 namespace DatingApp.Controllers
 {
@@ -26,29 +26,29 @@ namespace DatingApp.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(UserRegisterDro userRegisterDro)
+        public async Task<IActionResult> Register(UserForRegisterDro userForRegisterDro)
         {
-            userRegisterDro.UserName = userRegisterDro.UserName.ToLower();
+            userForRegisterDro.UserName = userForRegisterDro.UserName.ToLower();
 
-            if (await _authRepository.UserExists(userRegisterDro.UserName))
+            if (await _authRepository.UserExists(userForRegisterDro.UserName))
             {
                 return BadRequest("Username already exists");
             }
 
             var newUser = new User
             {
-                UserName = userRegisterDro.UserName
+                UserName = userForRegisterDro.UserName
             };
 
-            var createdUser = await _authRepository.Register(newUser, userRegisterDro.Password);
+            var createdUser = await _authRepository.Register(newUser, userForRegisterDro.Password);
 
             return StatusCode(201);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserLoginDto userLoginDto)
+        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            var user = await _authRepository.Login(userLoginDto.UserName.ToLower(), userLoginDto.Password);
+            var user = await _authRepository.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
 
             if (user == null)
             {

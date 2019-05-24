@@ -1,6 +1,6 @@
-﻿namespace WebApiTest.Dtos
+﻿namespace DatingApp.Dtos
 {
-    public class UserLoginDto
+    public class UserForLoginDto
     {
         public string UserName { get; set; }
 

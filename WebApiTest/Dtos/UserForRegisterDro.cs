@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiTest.Dtos
+namespace DatingApp.Dtos
 {
-    public class UserRegisterDro
+    public class UserForRegisterDro
     {
         [Required]
         [StringLength(30, MinimumLength = 1, ErrorMessage = "User name should have at least 1 and not more than 30 chars")]
